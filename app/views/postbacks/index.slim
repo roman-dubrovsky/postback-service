@@ -1,0 +1,17 @@
+.page-header  
+    h1 style="text-align: center;" Postbacks list
+
+.container
+  - @postbacks.each do |a|
+    .panel.panel-default class="#{(a.method == :post) ? "panel-primary" : "panel-info"}"
+      .panel-heading
+        = a.url
+
+        b.pull-right 
+          = a.method.upcase
+
+      .panel-body
+        = a.params
+
+      .panel-footer
+        = l a.created_at, format: :long

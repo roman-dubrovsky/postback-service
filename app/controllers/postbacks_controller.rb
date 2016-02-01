@@ -1,4 +1,6 @@
 class PostbacksController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+  
   before_action :remove_some_params
 
   def index
